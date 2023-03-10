@@ -1,0 +1,49 @@
+﻿@model Intergado.Models.Fazenda
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Editar Fazenda</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/StyleCreatedFazenda.css">
+</head>
+
+<body>
+	<div class="container d-flex justify-content-center">
+		<div id="logreg-forms" class="col-sm-12 col-md-8 col-lg-6">
+			<h1>Editar Fazenda</h1>
+			<form asp-action="Edit">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="Id" />
+				<div class="form-group">
+					<label asp-for="Nome" class="control-label">Nome da Fazenda:</label>
+					<input asp-for="Nome" class="form-control" />
+					<span asp-validation-for="Nome" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Salvar" class="btn btn-success" />
+				</div>
+			</form>
+			<br>
+		</div>
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

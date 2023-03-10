@@ -1,0 +1,52 @@
+﻿@model Intergado.Models.Animal
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Editar Fazenda</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/StyleCreatedFazenda.css">
+</head>
+
+<body>
+	<div class="container d-flex justify-content-center">
+		<div id="logreg-forms" class="col-sm-12 col-md-8 col-lg-6">
+			<h1>Editar Animais</h1>
+
+
+			<form asp-action="Edit">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="Id" />
+				<div class="form-group">
+					<label asp-for="Tag" class="control-label"></label>
+					<input asp-for="Tag" class="form-control" />
+					<span asp-validation-for="Tag" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Fazenda" class="control-label"></label>
+					<select disabled asp-for="FazendaId" class="form-control " asp-items="ViewBag.FazendaId"></select>
+					<input asp-for="FazendaId" type="hidden" />
+					<span asp-validation-for="FazendaId" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Save" class="btn btn-primary" />
+				</div>
+			</form>
+			<br>
+		</div>
+	</div>
+</body>
+
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
